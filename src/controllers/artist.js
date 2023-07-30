@@ -1,4 +1,4 @@
-const db = require('../db/index.js');
+const db = require('../db');
 
 const createArtist = async (req, res) => {
     const { name, genre } = req.body;
