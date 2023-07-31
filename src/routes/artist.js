@@ -1,9 +1,10 @@
 const express = require('express');
-const { createArtist } = require('../controllers/artist');
+const { createArtist, getArtists } = require('../controllers/artist');
 
 const router = express.Router();
 
 router.post('/', createArtist);
+router.get('/', getArtists);
 
 module.exports = { router };
 

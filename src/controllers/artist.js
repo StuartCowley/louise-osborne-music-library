@@ -12,8 +12,17 @@ const createArtist = async (req, res) => {
         );
         res.status(201).json(artist)
         } catch (err) {
-        res.status(500).json({ error: "An error occurred while creating artist"});
+            res.status(500).json({ error: "Could not create artist"});
         }
 };
 
-module.exports = { createArtist };
+const getArtists = async (req, res) => {
+    try{
+        const { rows } = await db.query(`SELECT * FROM Artists`);
+        res.status(200).json(rows);
+    } catch (err) {
+        res.status(500).json({ error: "Could not read artists"})
+    }
+};
+
+module.exports = { createArtist, getArtists };
