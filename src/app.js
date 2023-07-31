@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/artists', router);
+app.use('/album', router);
 
 
 module.exports = app;
