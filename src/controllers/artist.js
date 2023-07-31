@@ -25,4 +25,19 @@ const getArtists = async (req, res) => {
     }
 };
 
-module.exports = { createArtist, getArtists };
+const getArtistByID = async (req, res) => {
+    try{
+        const { id } = req.params;
+        const { rows: [artist]} = await db.query('SELECT * FROM Artists WHERE ID = $1', [id]);
+        
+        if (!artist) {
+            return res.status(404).json({ message: `artist ${id} does not exist` });
+        }
+        res.status(200).json(artist);
+        } catch (err) {
+        res.status(500).json({ error: "Could not read artist by ID" });
+    }
+};
+
+
+module.exports = { createArtist, getArtists, getArtistByID };
