@@ -4,12 +4,12 @@ const db = require('../src/db');
 const app = require('../src/app');
 
 describe('Read Albums', () => {
-    let artists
-    let albums
+    let artists;
+    let albums;
     beforeEach(async () => {
         const artistResponses = await Promise.all ([
             db.query(
-                'INSERT INTO Artists (name, genre) VALUES ($1, $2) RETURNING *',
+                'INSERT INTO Artists (name, genre) VALUES ($1, $2) RETURNING *', 
                 ['Taylor Swift','Pop']
             ),
             db.query(
