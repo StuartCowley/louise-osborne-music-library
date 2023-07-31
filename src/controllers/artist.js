@@ -56,5 +56,21 @@ const putArtist = async (req, res) => {
     }
 };
 
+const deleteArtistByID = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const {rows: [artist] } = await db.query("DELETE FROM ARTISTS WHERE ID = $1 RETURNING*", [id]);
+    
+        if (!artist) {
+            return res.status(404).json({ message: `artist ${id} does not exist` });
+        }
+    
+        res.status(200).json(artist);
+    } catch (err) {
+        res.status(500).json({ error: "Could not delete artist" });
+    }
+};
 
-module.exports = { createArtist, getArtists, getArtistByID, putArtist };
+
+
+module.exports = { createArtist, getArtists, getArtistByID, putArtist, deleteArtistByID };
