@@ -1,4 +1,4 @@
-const db = require('../db');
+const db = require('../db/index');
 
 const createArtist = async (req, res) => {
     const { name, genre } = req.body;
@@ -12,8 +12,8 @@ const createArtist = async (req, res) => {
         );
         res.status(201).json(artist)
         } catch (err) {
-        res.status(500).json(err.message);
+        res.status(500).json({ error: "An error occurred while creating artist"});
         }
 };
 
-module.exports = createArtist;
+module.exports = { createArtist };
