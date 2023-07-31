@@ -63,14 +63,14 @@ describe('Read Album', () => {
 
             expect(status).to.equal(200);
             expect(body).to.deep.equal(albums[0]);
-        })
+            })
 
         it('returns a 404 if the artist does not exist', async () => {
             const { status, body } = await request(app).get('/albums/999999999').send();
 
             expect(status).to.equal(404);
             expect(body.message).to.equal('album 999999999 does not exist');
-        })
-    });
-})
+            })
+        });
+    })
 });
