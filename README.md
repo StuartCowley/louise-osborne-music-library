@@ -1,12 +1,12 @@
 # Music Library 
 
-This is a Music Library application built as a project for the Command Shift Bootcamp. 
+This is a Music Library API which allows the user to create, read, update and delete data on music artists and albums. 
+It is a project built for the Command Shift Bootcamp. 
 
-It allows the user to create, read, update and delete data on artists and albums. 
-
-# Technology
+# Technology and Tools 
 
 This project uses: JavaScript, Express.js, Node.js, nodemon, PostgreSQL, postgres-migrations, Chai, Mocha, and Supertest.  
+
 I also used Test Driven Development, Postman, pgadmin4, VSCode and Docker as part of the development. 
 
 # Installation
